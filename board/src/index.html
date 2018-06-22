@@ -22,7 +22,28 @@
 <body>
     <div id="root"> Loading</div>
     <script type="text/babel">
-        
+        function Application(props){
+          return(
+            <div className="board">
+              <div className="header"></div>
+              <div className="players">
+                <div className="player">
+                  <div className="player-name"> Felix Anthony</div>
+                  <div className="player-score">
+                    <div className="counter">
+                      <button className="decrement">-</button>
+                      <div className="score">34</div>
+                      <button className="increment">+</button>
+                   </div>
+                  </div>
+                </div>
+                </div>
+
+
+            </div>
+          )
+        }
+        ReactDOM.render(<Application />, document.getElementById('root'));
     </script>
 
 </body>
