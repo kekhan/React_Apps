@@ -1,27 +1,29 @@
 
 .application{
 	background-color: gray;
-	
-	width: 500px;
+	width: 700px;
+	border-radius: 25px;
 	margin-left: 100px;
-	
+
 
 
 }
 
 .board-header{
-	background-color: red;
+	background-color: #5496BF;
 	text-align: center;
+	border-radius: 25px;
 
 }
 .player{
 	display: flex;
-	border-style: dotted;
+	border-style: solid;
+	border-radius: 25px
 
-	
+
 }
 .player-name{
-	
+
 
 	text-align: center;
 	padding-left: 350px;
@@ -33,19 +35,19 @@
 }
 button{
     width:50px;
-    height: 50px; 
-    position: relative; 
+    height: 50px;
+    position: relative;
     display: block;
 
 }
 .increment{
-	background: green;
+	background: #EBD35D;
 
 }
 .decrement{
 	margin-left: 25px;
-	background: red;
+	background: #D9918B;
 }
-.counter-score{
+.score{
 	padding: 10px;
 }
