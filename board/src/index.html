@@ -69,6 +69,22 @@
           score: React.PropTypes.number.isRequired,
           onChange: React.PropTypes.func.isRequired,
         }
+        var AddPlayerForm = React.createClass({
+          onSubmit: function(r){
+            e.preventfault();
+          },
+          render: function(){
+            return(
+              <div className="form-input">
+                <form onSubmit={this.onSubmit}>
+                  <input className="text-input" type="text" value=""/>
+                  <input type="submit"  value="Add Player"className="submit-input"/>
+                </form>
+              </div>
+            )
+          }
+        });
+
         function Stats(props){
           var totalPlayers = props.players.length;
           var totalPoints = props.players.reduce(function(total, player){
@@ -153,6 +169,7 @@
                   }.bind(this))
                 }
                 </div>
+                <AddPlayerForm />
               </div>
             );
           }
