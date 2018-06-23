@@ -32,8 +32,55 @@
       render: function(){
         return(
           <div className ="application">
+            <div className="header">
+              <h1>Recipe Box</h1>
+              <ul>
+                <li>Waffles</li>
+                <li>PanCakes</li>
+                <li>Egg & Bread</li>
+              </ul>
+            </div>
+            <div className="recipes">
+              <div className="recipe">
+                <div className="edit-recipe">
+                  <button> Edit </button>
+                  <button> Remove </button>
+                </div>
+                <div className="recipe-title"><h2>Waffles</h2></div>
+                <div className="recipe-content">
+                  <div className="ingredients-list">
+                    <h3>ingredients</h3>
+                    <ul>
+                      <li> 1 Egg</li>
+                      <li> 1 cup Flour</li>
+                      <li> 3/4 cup milk</li>
+                      <li> 2 TBSP Oil</li>
+                    </ul>
+                  </div>
+                  <div className="recipe-instructions">
+                    <h3>Instuctions</h3>
+                    <ol>
+                      <li>In a medium bowl mix all ingridients and set in refredge for 6 minutes.</li>
+                      <li> Heat waffle Iron</li>
+                      <li> Add 1/2 cup of waffle batter to heated iron</li>
+                    </ol>
+                  </div>
+                  </div>
+                </div>
+                <div className="Add-Recipe">
+                
+                  <form>
+                    <input type="text"  className="recipe-title" value="title"/>
+                    <input type="text"  className="recipe-ingredients" value="ingredients"/>
+                    <input type="text"  className="recipe-instructions" value="instructions"/>
+                    <input type="submit" value="Add" />
+                    <input type="submit" value="close"/>
+                  </form>
+                </div>
 
-          </div>
+              </div>
+
+            </div>
         )
       }
     });
