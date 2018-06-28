@@ -29,15 +29,17 @@
   <div id="root"></div>
   <script type="text/babel">
   var AddRecipeForm = React.createClass({
+    propTypes:{
+      onAdd: React.propTypes.func.isRequired,
+    },
     render: function(){
       return(
         <div className="Add-Recipe">
-          <form>
+          <form onSubmit={this.onSubmit}>
             <input type="text"  className="recipe-title" value="title"/>
             <input type="text"  className="recipe-ingredients" value="ingredients"/>
             <input type="text"  className="recipe-instructions" value="instructions"/>
             <input type="submit" value="Add" />
-            <input type="submit" value="close"/>
           </form>
         </div>
       );
