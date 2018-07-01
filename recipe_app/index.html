@@ -28,31 +28,15 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-    const RECIPES =[{
+    const RECIPES =[
+      {
       name: "Waffles",
       ingredients: ["eggs","milk","oil","Flour"],
       instructions: ["In a medium bowl mix all ingridients and set in refredge for 6 minutes.",
     "Heat waffle Iron","Add 1/2 cup of waffle batter to heated iron"],
+     }
+  ];
 
-    }
-
-    ];
-    var AddRecipeForm = React.createClass({
-      propTypes:{
-      },
-      render: function(){
-        return(
-          <div className="Add-Recipe">
-            <form onSubmit={this.onSubmit}>
-              <input type="text"  className="recipe-title" value="title"/>
-              <input type="text"  className="recipe-ingredients" value="ingredients"/>
-              <input type="text"  className="recipe-instructions" value="instructions"/>
-              <input type="submit" value="Add" />
-            </form>
-          </div>
-        );
-      }
-    });
     function Recipe (props){
       return (
         <div className="recipe">
@@ -60,20 +44,18 @@
             <button> Edit </button>
             <button> Remove </button>
           </div>
-          <div className="recipe-title"><h2>Waffles</h2></div>
+          <div className="recipe-title"><h2>{props.name}</h2></div>
           <div className="recipe-content">
             <div className="ingredients-list">
               <h3>ingredients</h3>
               <ul>
-                {props.recipes.map(function(recipe,i){
-                  return <li key={i}>{recipe.ingredients}</li>
-                })}
+                <li>{props.ingredient}</li>
               </ul>
             </div>
             <div className="recipe-instructions">
               <h3>Instuctions</h3>
               <ol>
-
+                <li>{props.instruction}</li>
               </ol>
             </div>
             </div>
@@ -81,11 +63,9 @@
       );
     }
     Recipe.propTypes ={
-      recipes: React.PropTypes.arrayOf(React.PropTypes.shape({
-        name: React.PropTypes.string.isRequired,
-        ingredients: React.PropTypes.array.isRequired,
-        instructions: React.PropTypes.array.isRequired,
-      })).isRequired,
+      name: React.PropTypes.string.isRequired,
+      ingredient: React.PropTypes.array.isRequired,
+      instruction: React.PropTypes.array.isRequired,
     }
 
     function Header(props){
@@ -93,24 +73,24 @@
         <div className="header">
           <h1>Recipe Box</h1>
           <ul>
-            <li>Waffles</li>
-            <li>PanCakes</li>
-            <li>Egg & Bread</li>
+            <li>{props.name}</li>
+
           </ul>
         </div>
 
       );
-
+    }
+    Header.propTypes ={
+      name: React.PropTypes.string.isRequired,
     }
     var Application = React.createClass({
       render: function(){
         return(
           <div className ="application">
-            <Header />
+            <Header name={props.name} />
             <div className="recipes">
-              <Recipe />
+              <Recipe ingredient={props.ingredient} instruction={props.instruction}/>
             </div>
-            <AddRecipeForm />
           </div>
         );
       }
