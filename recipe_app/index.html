@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
 
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
 
   <title>Recipe Box</title>
 </head>
@@ -31,6 +31,11 @@
   const RECIPES =[
     {
       name: "waffles",
+      ingredients: ["1 egg","milk","flour"],
+      instructions: ["add ingredients to bowl and mix","heat iron to 450","pour 1/2 cup into iron"],
+    },
+    {
+      name: "PanCake",
       ingredients: ["1 egg","milk","flour"],
       instructions: ["add ingredients to bowl and mix","heat iron to 450","pour 1/2 cup into iron"],
     }
@@ -58,24 +63,17 @@
       </div>
     )
   }
+  ListOfRecipes.propTypes ={
+    name: React.PropTypes.string.isRequired,
+  }
+
   function Recipe(props){
     return(
       <div className="recipe">
         <div className="recipe-name">
           <h2>{props.name}</h2>
         </div>
-        <div className="recipe-ingredients">
-          <p>Ingredients</p>
-          <ul>
-            <li>{props.ingredients}</li>
-          </ul>
-        </div>
-        <div className="recipe-instructions">
-          <p>Instructions</p>
-          <ol>
-              <li>{props.instructions}</li>
-          </ol>
-        </div>
+
       </div>
     );
   }
@@ -106,36 +104,57 @@
         recipes: this.props.initialRecipes,
       }
     },
+    getListOfIngredients: function(){
+      let list =[];
+      for(let i=0;i<this.state.recipes.length;i++){
+        let children =[];
+        for(let j=0; j<this.state.recipes[i].ingredients.length; j++ ){
+          children.push(<li>{this.state.recipes[i].ingredients[j]}</li>)
+        }
+        list.push(<ul>{children}</ul>)
+      }
+      return list;
+    },
+    getListOfInstructions: function(){
+      let list =[];
+      for(let i=0;i<this.state.recipes.length;i++){
+        let children =[];
+        for(let j=0; j<this.state.recipes[i].instructions.length; j++ ){
+          children.push(<li>{this.state.recipes[i].instructions[j]}</li>)
+        }
+        list.push(<ul>{children}</ul>)
+      }
+      return list;
+    },
 
     render: function(){
+      console.log(this.state.recipes[0].ingredients);
       return(
         <div className="application">
         <Header title={this.props.title}/>
         {
           this.state.recipes.map(function(recipe, index){
             return(
-              <ListOfRecipes
-
-                name={recipe.name}
-              />
-            );
+              <ListOfRecipes name={recipe.name} />
+            )
           })
         }
           <div className="recipes">
           {
             this.state.recipes.map(function(recipe, index){
               return(
-                <Recipe
-                  name={recipe.name}
-                  ingredients={recipe.ingredients}
-                  instructions={recipe.instructions}
-                />
+                <Recipe name={recipe.name} />
               )
-
-
             })
-
           }
+          </div>
+          < div className="ingredients">
+            <p>Ingredients</p>
+            {this.getListOfIngredients()}
+          </div>
+          < div className="instructions">
+            <p>Instructions</p>
+            {this.getListOfInstructions()}
           </div>
         </div>
 
