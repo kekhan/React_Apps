@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+
+}
+.user-name{
+  float: left;
+  margin-left: 15px;
+
+}
+.user-score{
+  float: left;
+  padding-left: 26%;
+
+}
