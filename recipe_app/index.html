@@ -56,7 +56,7 @@
     return(
       <div className="ordered-list">
         <ol>
-          <li>
+          <li onClick= {function(){props.onChange()}}>
             {props.name}
           </li>
         </ol>
@@ -65,6 +65,7 @@
   }
   ListOfRecipes.propTypes ={
     name: React.PropTypes.string.isRequired,
+    onChange: React.PropTypes.func.isRequired,
   }
 
   function Recipe(props){
@@ -111,11 +112,15 @@
         for(let j=0; j<this.state.recipes[i].ingredients.length; j++ ){
           children.push(<li>{this.state.recipes[i].ingredients[j]}</li>)
         }
+        for(let j=0; j<this.state.recipes[i].instructions.length; j++ ){
+          children.push(<li>{this.state.recipes[i].instructions[j]}</li>)
+        }
         list.push(<ul>{children}</ul>)
       }
       return list;
     },
     getListOfInstructions: function(){
+      // need to get index of recipe click
       let list =[];
       for(let i=0;i<this.state.recipes.length;i++){
         let children =[];
