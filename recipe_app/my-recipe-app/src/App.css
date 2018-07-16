@@ -12,15 +12,18 @@ body{
   margin: 0;
 }
 
-li:hover{
-  background: #71DDE3;
-  width: 30%;
-}
 
-ul,ol{
+
+ul,ol,li{
     list-style-type: none;
+
 }
 p{
-  width: 25%;
+  width: 50%;
   background-color: #0396A6;
+}
+.list-box{
+
+  width: 250px;
+
 }

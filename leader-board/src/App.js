@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
-function User(props){
-  return(
-    <div className="user">
-      <div className="user-name">{props.name}</div>
-      <div className="user-score">{props.score}</div>
-    </div>
-  )
-}
-User.propTypes ={
-  name: React.PropTypes.string,
-  score: React.PropTypes.number,
-};
-User.defaultProps = {
-  name: "Person1",
-  score: 23,
+import PropTypes from 'prop-types';
+import axios from 'axios';
+const clientId="lyszn9cytfoogtkiaq5j06plw2kudy";
 
-};
 class App extends Component {
+  state = {
+    users:[]
+  };
+  componentDidMount(){
+    axios.get('https://api.github.com/search/repositories?q=tetris+language:assembly&sort=stars&order=desc')
+      .then(response => {
+        this.setState({users:response.data.items})
+      })
+      .catch(error => {
+        console.log('error', error);
+      })
+  }
   render() {
+    console.log(this.state.users);
     return (
       <div className="App">
         <div className="Header">
           <h1>Camper Leader Board</h1>
         </div>
         <div className="Users">
-          <User />
+
         </div>
       </div>
     );
