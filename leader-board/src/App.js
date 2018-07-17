@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import UserList from './UserList';
 import axios from 'axios';
 import './App.css';
 const clientId="lyszn9cytfoogtkiaq5j06plw2kudy";
@@ -22,18 +22,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Header">
-          <h1>Camper Leader Board</h1>
+          <h1>GitHub Leader Board</h1>
         </div>
         <div className="Users">
-          <div className="user">
-            <div className="user-image">image</div>
-            <div className="user-name">
-              Name
-            </div>
-            <div className="user-score">
-              Score
-            </div>
-          </div>
+            <UserList users={this.state.users} />
         </div>
       </div>
     );

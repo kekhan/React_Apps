@@ -16,6 +16,27 @@ h1{
   border-color: #000;
 }
 .user-image{
+
+}
+.user-name{
+  float: left;
+  margin-left: 100px;
+
+}
+.user-score{
+  float: right;
+  padding-left: 26px;
+  margin-left: 100px;
+
+}
+.user-image{
+  float: left;
+  width: 65px;
+  height: 65px;
   padding-right: 25px;
   padding-left: 50px;
+}
+
+ul,li{
+  list-style: none;
 }
