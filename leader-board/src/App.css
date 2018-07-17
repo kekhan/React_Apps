@@ -1,0 +1,21 @@
+
+.Header{
+  background: #00336A;
+  padding: 25px;
+  height: 100%;
+}
+h1{
+  color: #F2B514;
+  text-align: center;
+}
+.user{
+  background: #8098B5;
+  display: flex;
+  border-style: solid;
+  color: #F2B514;
+  border-color: #000;
+}
+.user-image{
+  padding-right: 25px;
+  padding-left: 50px;
+}

@@ -1,8 +1,50 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-
-import './App.css';
 import RecipeList from './RecipeList';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import './App.css';
+
+class NavBar extends React.Component {
+  state = {};
+
+  render() {
+
+    return (
+      <div className='root'>
+        <AppBar style={{background:'white'}}>
+          <Toolbar>
+            <Typography variant="title"  className='flex'>
+              Recipe Journal
+            </Typography>
+            <Button>ABOUT</Button>
+            <Button>HELP</Button>
+
+            <div>
+              <IconButton>
+                <AccountCircle className='login' />
+              </IconButton>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
+}
+
+NavBar.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
 class App extends Component {
   state = {
     recipes:
@@ -25,10 +67,13 @@ class App extends Component {
   }
   render() {
     return (
+
       <div className="App">
         <div className="header">
-          <h1>Recipe Journal</h1>
+        <NavBar />
+        <h1>1</h1>
         </div>
+
         <div className="intro-content">
           <RecipeList recipes={this.state.recipes}/>
         </div>
