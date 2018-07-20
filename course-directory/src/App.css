@@ -1,0 +1,16 @@
+li,button{
+  list-style: none;
+  float: left;
+  display: inline-block;
+  padding-right: 75px;
+  text-decoration-line: none;
+  color:#A4ABBF;
+}
+button:hover{
+  background: #0055A5;
+  height: 100%;
+}
+header{
+  background: #990434;
+  padding: 25px;
+}
