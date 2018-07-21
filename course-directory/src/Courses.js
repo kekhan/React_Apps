@@ -19,9 +19,22 @@ class Courses extends Component {
     render() {
       console.log(this.state.courses)
       return (
-        <div><h1>Courses</h1></div>
+        <div>
+        {
+          this.state.courses.map(function(course,index){
+            return(
+              <ul key={index}>
+                <li>
+                 <img src={course.image} alt="Icon of course: " />
+                 <a href={course.homepage}>{course.title}</a></li>
+              </ul>
+            )
+          })
+        }
+        </div>
       );
  }
+
 }
 
 
