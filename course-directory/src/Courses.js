@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-
 class Courses extends Component {
     state ={
       courses:[]
@@ -17,24 +16,32 @@ class Courses extends Component {
     }
 
     render() {
-      console.log(this.state.courses)
-      return (
-        <div>
-        {
-          this.state.courses.map(function(course,index){
-            return(
-              <ul key={index}>
-                <li>
-                 <img src={course.image} alt="Icon of course: " />
-                 <a href={course.homepage}>{course.title}</a></li>
-              </ul>
-            )
-          })
-        }
-        </div>
-      );
- }
+      var array = [];
+      var course_len =0;
+      for( var i=0; i< this.state.courses.length;i++){
+        course_len++;
+        if (this.state.courses[i].image.length > 0 && course_len <=10){
 
+          var object =  <div>
+            <ul key={i}>
+
+              <li>
+               <img src={this.state.courses[i].image} alt="Icon of course:" />
+               <a href={this.state.courses[i].homepage}>{this.state.courses[i].title}</a>
+              </li>
+
+            </ul>
+            </div>;
+            array.push(object);
+
+        }
+      }
+      return(
+        <div>
+          {array}
+        </div>
+      )
+}
 }
 
 
